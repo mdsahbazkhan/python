@@ -202,9 +202,26 @@ with open("test.txt","r") as f:
 # upper=[name.upper() for name in names]
 # print(upper)
 
-list=[1,2,3,4,5,6]
-even_square=[i**2 for i in list if i%2==0]
-print(even_square)
+# list=[1,2,3,4,5,6]
+# even_square=[i**2 for i in list if i%2==0]
+# print(even_square)
+
+from fastapi import FastAPI
+
+app=FastAPI()
+
+@app.get("/")
+def home():
+    return {"message":"Hello Sahbaz khan "}
+
+@app.get("/about")
+def about():
+    return {"name":"Sahbaz Khan", "role":"Ai Developer"}
+
+@app.get("/user/{name}")
+
+def get_user(name):
+    return {"user":name}
 
 
 
